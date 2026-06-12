@@ -1,8 +1,3 @@
-/* ============================================================
-   TANYA DHINGRA — script.js
-   Custom cursor, scroll animations, nav behaviour
-   ============================================================ */
-
 (function () {
   'use strict';
 
@@ -29,7 +24,6 @@
   }
   animateFollower();
 
-  // Hide cursor when leaving window
   document.addEventListener('mouseleave', () => {
     cursor.style.opacity = '0';
     follower.style.opacity = '0';
@@ -39,7 +33,6 @@
     follower.style.opacity = '1';
   });
 
-  // Scale on click
   document.addEventListener('mousedown', () => {
     cursor.style.transform = 'translate(-50%, -50%) scale(0.6)';
     follower.style.transform = 'translate(-50%, -50%) scale(0.85)';
@@ -66,7 +59,6 @@
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach((entry, i) => {
       if (entry.isIntersecting) {
-        // Stagger siblings in the same parent
         const siblings = Array.from(entry.target.parentElement.querySelectorAll('.reveal'));
         const idx = siblings.indexOf(entry.target);
         const delay = idx * 120;
@@ -98,7 +90,6 @@
       });
     });
 
-    // Animate hero tag and sub immediately
     const heroEls = document.querySelectorAll('.hero .reveal');
     heroEls.forEach((el, i) => {
       setTimeout(() => el.classList.add('visible'), 200 + i * 100);
